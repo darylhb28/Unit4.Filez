@@ -13,7 +13,7 @@ export async function getFilesWithFolder(){
     SELECT files.*,
     folders.name AS folder_name 
     FROM files
-    JOIN folders on folders.id = files.folder_id
+    JOIN folders on folders.id = files.folder_id;
     `
     const {rows: files} = await db.query (sql)
     return files

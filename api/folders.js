@@ -14,7 +14,7 @@ res.send(folders)
 foldersRouter.route("/:id").get(async(req, res)=>{
     const id = Number(req.params.id)
     const foundFolder = await getFoldersByIdIncludingFiles(id)
-
+    
     if (!foundFolder){
         return res.status(404).send("There is no folder with that id")
     }

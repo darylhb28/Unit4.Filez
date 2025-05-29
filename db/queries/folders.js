@@ -23,7 +23,7 @@ export async function getFoldersByIdIncludingFiles(id){
     SELECT json_agg(files)
     FROM files
     WHERE files.folder_id = folders.id
-    ) AS files FROM folders WHERE ID = $1
+    ) AS files FROM folders WHERE ID = $1;
     `
     const {rows: [folder]} = await db.query(sql, [id])
     return folder
