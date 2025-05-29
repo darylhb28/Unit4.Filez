@@ -35,13 +35,13 @@ if (!req.body){
     return res.status(400).send("Missing request body")
 }
 
-const {name, size, folder_id} = req.body
+const {name, size} = req.body
 
-if(!name || !size || !folder_id){
+if(!name || !size ){
     return res.status(400).send("Missing required fields")
 }
 
-const newFile = await createFile({name, size, folder_id})
+const newFile = await createFile({name, size, folder_id: id})
 res.status(201).send(newFile)
 
 })
